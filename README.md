@@ -2,4 +2,4 @@
 
 This is for the MetroAPITest at https://api.publicapis.org
 
-The collection was exported as json file. 
+The result was exported as json file with name "APITest.json".
