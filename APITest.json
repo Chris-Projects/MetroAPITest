@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "8be0604f-0400-4640-9fa3-85dccacd7e10",
+		"name": "APITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20718146"
+	},
+	"item": [
+		{
+			"name": "APITest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);       \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The number of entry is 1425\", function (){\r",
+							"    let jsonData = pm.response.json();\r",
+							"    let entryLength = jsonData[\"entries\"].length;\r",
+							"    pm.expect(entryLength).to.be.eql(jsonData[\"count\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/entries",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"entries"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://api.publicapis.org"
+		}
+	]
+}
